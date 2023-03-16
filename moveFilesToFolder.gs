@@ -15,10 +15,7 @@ function moveFilesToFolder() {
     var file = fileArray.next();
     // If the file is not already in the folder
     if (!folder.getFilesByName(file.getName()).hasNext()) {
-      folder.addFile(file);
-
-      // Remove from previous folder after being moved to the new one
-      file.getParents().next().removeFile(file);
+      file.moveTo(folder);
     }
   }
 }
